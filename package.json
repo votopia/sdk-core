@@ -1,0 +1,49 @@
+{
+  "name": "@votopia/sdk-core",
+  "version": "1.0.1",
+  "description": "An SDK for building applications on top of Votopia",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": "https://github.com/votopia/sdk-core.git",
+  "keywords": [
+    "uniswap",
+    "votopia",
+    "solidly",
+    "ethereum"
+  ],
+  "module": "dist/sdk-core.esm.js",
+  "scripts": {
+    "build": "tsdx build",
+    "start": "tsdx watch",
+    "test": "tsdx test",
+    "prepublishOnly": "tsdx build"
+  },
+  "dependencies": {
+    "@ethersproject/abi": "^5.7.0",
+    "@ethersproject/address": "^5.0.2",
+    "@ethersproject/solidity": "^5.7.0",
+    "big.js": "^5.2.2",
+    "decimal.js-light": "^2.5.0",
+    "jsbi": "^3.1.4",
+    "tiny-invariant": "^1.1.0",
+    "toformat": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/big.js": "^4.0.5",
+    "@types/jest": "^24.0.25",
+    "prettier": "^3.0.3",
+    "tsdx": "^0.14.1"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "prettier": {
+    "endOfLine": "lf",
+    "semi": true,
+    "singleQuote": false,
+    "tabWidth": 2
+  }
+}
