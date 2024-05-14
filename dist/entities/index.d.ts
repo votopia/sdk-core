@@ -10,3 +10,4 @@ export * from "./tickDataProvider";
 export * from "./tickListDataProvider";
 export * from "./token";
 export * from "./trade";
+export * from "./protocol";

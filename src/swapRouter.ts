@@ -7,7 +7,6 @@ import {
   Route,
   Trade,
   Position,
-  Token,
 } from "./entities";
 
 import {
@@ -17,22 +16,15 @@ import {
   toHex,
 } from "./utils";
 
-import {
-  TradeType,
-  ADDRESS_THIS,
-  MSG_SENDER,
-  WRAPPED_NATIVE_CURRENCY_ID,
-  WRAPPED_NATIVE_CURRENCY_NAME,
-  NATIVE_CURRENCY_ICON,
-  NATIVE_CURRENCY_COINGECKO_ID,
-} from "./constants";
+import { TradeType, ADDRESS_THIS, MSG_SENDER } from "./constants";
+
+import { WRAPPED_NATIVE_TOKEN } from "./tokens";
 
 import { Payments, FeeOptions } from "./payments";
 import { PermitOptions, SelfPermit } from "./selfPermit";
 
 import { abi } from "./abis/ISwapRouter02.json";
 
-import { WRAPPED_NATIVE_TOKEN_ADDRESS } from "./addresses";
 import invariant from "tiny-invariant";
 import JSBI from "jsbi";
 
@@ -50,16 +42,6 @@ const REFUND_ETH_PRICE_IMPACT_THRESHOLD = new Percent(
   JSBI.BigInt(50),
   JSBI.BigInt(100),
 );
-
-const WRAPPED_NATIVE_TOKEN = new Token(
-  WRAPPED_NATIVE_TOKEN_ADDRESS,
-  18,
-  WRAPPED_NATIVE_CURRENCY_ID,
-  WRAPPED_NATIVE_CURRENCY_NAME,
-  NATIVE_CURRENCY_ICON,
-  NATIVE_CURRENCY_COINGECKO_ID,
-);
-
 /**
  * Options for producing the arguments to send calls to the router.
  */

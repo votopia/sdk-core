@@ -9,6 +9,7 @@ import { defaultAbiCoder, Interface } from '@ethersproject/abi';
 import { keccak256, pack } from '@ethersproject/solidity';
 
 var WRAPPED_NATIVE_TOKEN_ADDRESS = "0x98E1817244d130D8fE05591ba517d3f24Db035Ec";
+var USDC_TOKEN_ADDRESS = "0xD1fE20F19f18F4f26CbCf97a2367a47c3866d98e";
 var FACTORY_ADDRESS = "0x86038EAbf8448c4a11e7987c84FdDd1b9E7AC491";
 var ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
 var NONFUNGIBLE_POSITION_MANAGER_ADDRESS = "0xbD18b076DE6810dfc5Eb8B59fCa86d2308eDf023";
@@ -492,14 +493,11 @@ var ONE = /*#__PURE__*/JSBI.BigInt(1);
 var Q96 = /*#__PURE__*/JSBI.exponentiate( /*#__PURE__*/JSBI.BigInt(2), /*#__PURE__*/JSBI.BigInt(96));
 var Q192 = /*#__PURE__*/JSBI.exponentiate(Q96, /*#__PURE__*/JSBI.BigInt(2));
 var POOL_INIT_CODE_HASH = "0xe34f199b19b2b4f47f68442619d555527d244f78a3297ea89325f843f87b8b54";
-var NATIVE_CURRENCY_ID = "ETH";
-var NATIVE_CURRENCY_NAME = "Ethereum";
-var NATIVE_CURRENCY_ICON = "/icons/eth.svg";
-var NATIVE_CURRENCY_COINGECKO_ID = "ethereum";
-var WRAPPED_NATIVE_CURRENCY_ID = "WETH";
-var WRAPPED_NATIVE_CURRENCY_NAME = "Wrapped ETH";
 var MSG_SENDER = "0x0000000000000000000000000000000000000001";
 var ADDRESS_THIS = "0x0000000000000000000000000000000000000002";
+var OVM_GASPRICE_ADDRESS = "0x420000000000000000000000000000000000000F";
+var NETWORK_NAME = "Votopia";
+var SUBGRAPH_URL = "https://graph.brcchain.io/subgraphs/name/votopia-subgraph";
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
@@ -2840,6 +2838,13 @@ var Trade = /*#__PURE__*/function () {
   }]);
   return Trade;
 }();
+
+var Protocol;
+(function (Protocol) {
+  Protocol["V2"] = "V2";
+  Protocol["V3"] = "V3";
+  Protocol["MIXED"] = "MIXED";
+})(Protocol || (Protocol = {}));
 
 /**
  * Returns the percent difference between the mid price and the execution price, i.e. price impact.
@@ -5575,6 +5580,32 @@ var PaymentsExtended = /*#__PURE__*/function () {
 }();
 PaymentsExtended.INTERFACE = /*#__PURE__*/new Interface(abi$5);
 
+var USDC = /*#__PURE__*/new Token(USDC_TOKEN_ADDRESS, 18, "USDC", "USD Coin", "/icons/usdc.png", "usd-coin");
+var WRAPPED_NATIVE_TOKEN = /*#__PURE__*/new Token(WRAPPED_NATIVE_TOKEN_ADDRESS, 18, "WETH", "Wrapped ETH", "/icons/weth.svg", "weth");
+var _NativeCurrenty = /*#__PURE__*/function (_NativeCurrency) {
+  _inheritsLoose(_NativeCurrenty, _NativeCurrency);
+  function _NativeCurrenty() {
+    return _NativeCurrency.call(this, 18, "ETH", "Ethereum", "/icons/eth.svg", "ethereum") || this;
+  }
+  var _proto = _NativeCurrenty.prototype;
+  _proto.equals = function equals(other) {
+    return other.isNative;
+  };
+  _createClass(_NativeCurrenty, [{
+    key: "wrapped",
+    get: function get() {
+      return WRAPPED_NATIVE_TOKEN;
+    }
+  }], [{
+    key: "id",
+    get: function get() {
+      return "ETH";
+    }
+  }]);
+  return _NativeCurrenty;
+}(NativeCurrency);
+var NATIVE_CURRENCY = /*#__PURE__*/new _NativeCurrenty();
+
 var abi$6 = [
 	{
 		inputs: [
@@ -6603,7 +6634,6 @@ ApproveAndCall.INTERFACE = /*#__PURE__*/new Interface(abi$7);
 
 var ZERO$2 = /*#__PURE__*/JSBI.BigInt(0);
 var REFUND_ETH_PRICE_IMPACT_THRESHOLD = /*#__PURE__*/new Percent( /*#__PURE__*/JSBI.BigInt(50), /*#__PURE__*/JSBI.BigInt(100));
-var WRAPPED_NATIVE_TOKEN = /*#__PURE__*/new Token(WRAPPED_NATIVE_TOKEN_ADDRESS, 18, WRAPPED_NATIVE_CURRENCY_ID, WRAPPED_NATIVE_CURRENCY_NAME, NATIVE_CURRENCY_ICON, NATIVE_CURRENCY_COINGECKO_ID);
 /**
  * Represents the Uniswap V2 + V3 SwapRouter02, and has static methods for helping execute trades.
  */
@@ -6895,5 +6925,34 @@ var SwapRouter = /*#__PURE__*/function () {
 }();
 SwapRouter.INTERFACE = /*#__PURE__*/new Interface(abi$6);
 
-export { ADDRESS_MAP, ADDRESS_THIS, ApprovalTypes, ApproveAndCall, CurrencyAmount, FACTORY_ADDRESS, FeeAmount, Fraction, FullMath, LiquidityMath, MAX_SAFE_INTEGER, MSG_SENDER, MULTICALL_ADDRESS, MaxUint256, Multicall, MulticallExtended, NATIVE_CURRENCY_COINGECKO_ID, NATIVE_CURRENCY_ICON, NATIVE_CURRENCY_ID, NATIVE_CURRENCY_NAME, NEGATIVE_ONE, NONFUNGIBLE_POSITION_MANAGER_ADDRESS, NativeCurrency, NoTickDataProvider, NonfungiblePositionManager, ONE, POOL_INIT_CODE_HASH, Payments, PaymentsExtended, Percent, Pool, Position, PositionLibrary, Price, Q192, Q96, QUOTER_V2_ADDRESS, Rounding, Route, RouteSDK, SWAP_ROUTER_02_ADDRESS, SelfPermit, SqrtPriceMath, SwapMath, SwapRouter, TICK_LENS_ADDRESS, TICK_SPACINGS, Tick, TickLibrary, TickList, TickListDataProvider, TickMath, Token, Trade, TradeSDK, TradeType, WRAPPED_NATIVE_CURRENCY_ID, WRAPPED_NATIVE_CURRENCY_NAME, WRAPPED_NATIVE_TOKEN_ADDRESS, ZERO, ZERO_ADDRESS, checkValidAddress, computePoolAddress, computePriceImpact, encodeRouteToPath, encodeSqrtRatioX96, isMint$1 as isMint, isSorted, maxLiquidityForAmounts, mostSignificantBit, nearestUsableTick, priceToClosestTick, sortedInsert, sqrt, subIn256, tickToPrice, toHex, tradeComparator, validateAndParseAddress };
+var tokens = [{
+  symbol: "WETH",
+  name: "Wrapped Ethereum",
+  icon: "/icons/weth.svg",
+  decimals: 18,
+  address: "0x98E1817244d130D8fE05591ba517d3f24Db035Ec",
+  coingeckoId: "ethereum"
+}, {
+  symbol: "USDC",
+  name: "USD Coin",
+  icon: "/icons/usdc.png",
+  decimals: 18,
+  address: "0xD1fE20F19f18F4f26CbCf97a2367a47c3866d98e",
+  coingeckoId: "usdc"
+}];
+var DEFAULT_TOKEN_LIST = {
+  name: "Votopia Default",
+  timestamp: /*#__PURE__*/new Date().toISOString(),
+  version: {
+    major: 1,
+    minor: 0,
+    patch: 0
+  },
+  tags: {},
+  logoURI: "ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir",
+  keywords: ["votopia", "default"],
+  tokens: tokens
+};
+
+export { ADDRESS_MAP, ADDRESS_THIS, ApprovalTypes, ApproveAndCall, CurrencyAmount, DEFAULT_TOKEN_LIST, FACTORY_ADDRESS, FeeAmount, Fraction, FullMath, LiquidityMath, MAX_SAFE_INTEGER, MSG_SENDER, MULTICALL_ADDRESS, MaxUint256, Multicall, MulticallExtended, NATIVE_CURRENCY, NEGATIVE_ONE, NETWORK_NAME, NONFUNGIBLE_POSITION_MANAGER_ADDRESS, NativeCurrency, NoTickDataProvider, NonfungiblePositionManager, ONE, OVM_GASPRICE_ADDRESS, POOL_INIT_CODE_HASH, Payments, PaymentsExtended, Percent, Pool, Position, PositionLibrary, Price, Protocol, Q192, Q96, QUOTER_V2_ADDRESS, Rounding, Route, RouteSDK, SUBGRAPH_URL, SWAP_ROUTER_02_ADDRESS, SelfPermit, SqrtPriceMath, SwapMath, SwapRouter, TICK_LENS_ADDRESS, TICK_SPACINGS, Tick, TickLibrary, TickList, TickListDataProvider, TickMath, Token, Trade, TradeSDK, TradeType, USDC, USDC_TOKEN_ADDRESS, WRAPPED_NATIVE_TOKEN, WRAPPED_NATIVE_TOKEN_ADDRESS, ZERO, ZERO_ADDRESS, checkValidAddress, computePoolAddress, computePriceImpact, encodeRouteToPath, encodeSqrtRatioX96, isMint$1 as isMint, isSorted, maxLiquidityForAmounts, mostSignificantBit, nearestUsableTick, priceToClosestTick, sortedInsert, sqrt, subIn256, tickToPrice, toHex, tradeComparator, validateAndParseAddress };
 //# sourceMappingURL=sdk-core.esm.js.map
