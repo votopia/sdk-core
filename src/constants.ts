@@ -53,9 +53,11 @@ export const MSG_SENDER = "0x0000000000000000000000000000000000000001";
 export const ADDRESS_THIS = "0x0000000000000000000000000000000000000002";
 
 export const OVM_GASPRICE_ADDRESS =
-  "0x420000000000000000000000000000000000000F";
+  "0xb528D11cC114E026F138fE568744c6D45ce6Da7A";
 
 export const NETWORK_NAME = "Votopia";
 
 export const SUBGRAPH_URL =
   "https://graph.brcchain.io/subgraphs/name/votopia-subgraph";
+
+export const JSON_RPC_PROVIER = "https://rpc-testnet.optopia.ai";

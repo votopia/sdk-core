@@ -495,9 +495,10 @@ var Q192 = /*#__PURE__*/JSBI.exponentiate(Q96, /*#__PURE__*/JSBI.BigInt(2));
 var POOL_INIT_CODE_HASH = "0xe34f199b19b2b4f47f68442619d555527d244f78a3297ea89325f843f87b8b54";
 var MSG_SENDER = "0x0000000000000000000000000000000000000001";
 var ADDRESS_THIS = "0x0000000000000000000000000000000000000002";
-var OVM_GASPRICE_ADDRESS = "0x420000000000000000000000000000000000000F";
+var OVM_GASPRICE_ADDRESS = "0xb528D11cC114E026F138fE568744c6D45ce6Da7A";
 var NETWORK_NAME = "Votopia";
 var SUBGRAPH_URL = "https://graph.brcchain.io/subgraphs/name/votopia-subgraph";
+var JSON_RPC_PROVIER = "https://rpc-testnet.optopia.ai";
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
@@ -6954,5 +6955,5 @@ var DEFAULT_TOKEN_LIST = {
   tokens: tokens
 };
 
-export { ADDRESS_MAP, ADDRESS_THIS, ApprovalTypes, ApproveAndCall, CurrencyAmount, DEFAULT_TOKEN_LIST, FACTORY_ADDRESS, FeeAmount, Fraction, FullMath, LiquidityMath, MAX_SAFE_INTEGER, MSG_SENDER, MULTICALL_ADDRESS, MaxUint256, Multicall, MulticallExtended, NATIVE_CURRENCY, NEGATIVE_ONE, NETWORK_NAME, NONFUNGIBLE_POSITION_MANAGER_ADDRESS, NativeCurrency, NoTickDataProvider, NonfungiblePositionManager, ONE, OVM_GASPRICE_ADDRESS, POOL_INIT_CODE_HASH, Payments, PaymentsExtended, Percent, Pool, Position, PositionLibrary, Price, Protocol, Q192, Q96, QUOTER_V2_ADDRESS, Rounding, Route, RouteSDK, SUBGRAPH_URL, SWAP_ROUTER_02_ADDRESS, SelfPermit, SqrtPriceMath, SwapMath, SwapRouter, TICK_LENS_ADDRESS, TICK_SPACINGS, Tick, TickLibrary, TickList, TickListDataProvider, TickMath, Token, Trade, TradeSDK, TradeType, USDC, USDC_TOKEN_ADDRESS, WRAPPED_NATIVE_TOKEN, WRAPPED_NATIVE_TOKEN_ADDRESS, ZERO, ZERO_ADDRESS, checkValidAddress, computePoolAddress, computePriceImpact, encodeRouteToPath, encodeSqrtRatioX96, isMint$1 as isMint, isSorted, maxLiquidityForAmounts, mostSignificantBit, nearestUsableTick, priceToClosestTick, sortedInsert, sqrt, subIn256, tickToPrice, toHex, tradeComparator, validateAndParseAddress };
+export { ADDRESS_MAP, ADDRESS_THIS, ApprovalTypes, ApproveAndCall, CurrencyAmount, DEFAULT_TOKEN_LIST, FACTORY_ADDRESS, FeeAmount, Fraction, FullMath, JSON_RPC_PROVIER, LiquidityMath, MAX_SAFE_INTEGER, MSG_SENDER, MULTICALL_ADDRESS, MaxUint256, Multicall, MulticallExtended, NATIVE_CURRENCY, NEGATIVE_ONE, NETWORK_NAME, NONFUNGIBLE_POSITION_MANAGER_ADDRESS, NativeCurrency, NoTickDataProvider, NonfungiblePositionManager, ONE, OVM_GASPRICE_ADDRESS, POOL_INIT_CODE_HASH, Payments, PaymentsExtended, Percent, Pool, Position, PositionLibrary, Price, Protocol, Q192, Q96, QUOTER_V2_ADDRESS, Rounding, Route, RouteSDK, SUBGRAPH_URL, SWAP_ROUTER_02_ADDRESS, SelfPermit, SqrtPriceMath, SwapMath, SwapRouter, TICK_LENS_ADDRESS, TICK_SPACINGS, Tick, TickLibrary, TickList, TickListDataProvider, TickMath, Token, Trade, TradeSDK, TradeType, USDC, USDC_TOKEN_ADDRESS, WRAPPED_NATIVE_TOKEN, WRAPPED_NATIVE_TOKEN_ADDRESS, ZERO, ZERO_ADDRESS, checkValidAddress, computePoolAddress, computePriceImpact, encodeRouteToPath, encodeSqrtRatioX96, isMint$1 as isMint, isSorted, maxLiquidityForAmounts, mostSignificantBit, nearestUsableTick, priceToClosestTick, sortedInsert, sqrt, subIn256, tickToPrice, toHex, tradeComparator, validateAndParseAddress };
 //# sourceMappingURL=sdk-core.esm.js.map
