@@ -498,7 +498,7 @@ var ADDRESS_THIS = "0x0000000000000000000000000000000000000002";
 var OVM_GASPRICE_ADDRESS = "0xb528D11cC114E026F138fE568744c6D45ce6Da7A";
 var NETWORK_NAME = "Votopia";
 var SUBGRAPH_URL = "https://graph.brcchain.io/subgraphs/name/votopia-subgraph";
-var JSON_RPC_PROVIER = "https://rpc.optopia.ai";
+var JSON_RPC_PROVIER = "https://rpc-mainnet.optopia.ai";
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);

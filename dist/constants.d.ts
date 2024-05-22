@@ -36,4 +36,4 @@ export declare const ADDRESS_THIS = "0x0000000000000000000000000000000000000002"
 export declare const OVM_GASPRICE_ADDRESS = "0xb528D11cC114E026F138fE568744c6D45ce6Da7A";
 export declare const NETWORK_NAME = "Votopia";
 export declare const SUBGRAPH_URL = "https://graph.brcchain.io/subgraphs/name/votopia-subgraph";
-export declare const JSON_RPC_PROVIER = "https://rpc.optopia.ai";
+export declare const JSON_RPC_PROVIER = "https://rpc-mainnet.optopia.ai";
