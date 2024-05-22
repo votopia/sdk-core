@@ -60,4 +60,4 @@ export const NETWORK_NAME = "Votopia";
 export const SUBGRAPH_URL =
   "https://graph.brcchain.io/subgraphs/name/votopia-subgraph";
 
-export const JSON_RPC_PROVIER = "https://rpc-testnet.optopia.ai";
+export const JSON_RPC_PROVIER = "https://rpc.optopia.ai";
