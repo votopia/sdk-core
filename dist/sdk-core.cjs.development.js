@@ -5580,7 +5580,7 @@ var PaymentsExtended = /*#__PURE__*/function () {
 }();
 PaymentsExtended.INTERFACE = /*#__PURE__*/new abi$8.Interface(abi$5);
 
-var USDC = /*#__PURE__*/new Token(USDC_TOKEN_ADDRESS, 18, "USDC", "USD Coin", "/icons/usdc.png", "usd-coin");
+var USDC = /*#__PURE__*/new Token(USDC_TOKEN_ADDRESS, 6, "USDC", "USD Coin", "/icons/usdc.png", "usd-coin");
 var WRAPPED_NATIVE_TOKEN = /*#__PURE__*/new Token(WRAPPED_NATIVE_TOKEN_ADDRESS, 18, "WETH", "Wrapped ETH", "/icons/weth.svg", "weth");
 var _NativeCurrenty = /*#__PURE__*/function (_NativeCurrency) {
   _inheritsLoose(_NativeCurrenty, _NativeCurrency);

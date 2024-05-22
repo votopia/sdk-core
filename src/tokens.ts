@@ -4,7 +4,7 @@ import { Token, Currency, NativeCurrency } from "./entities";
 
 export const USDC = new Token(
   USDC_TOKEN_ADDRESS,
-  18,
+  6,
   "USDC",
   "USD Coin",
   "/icons/usdc.png",
