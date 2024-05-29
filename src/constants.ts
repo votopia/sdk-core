@@ -34,7 +34,7 @@ export const TICK_SPACINGS: { [amount in FeeAmount]: number } = {
   [FeeAmount.LOWEST]: 1,
   [FeeAmount.LOW]: 10,
   [FeeAmount.MEDIUM]: 60,
-  [FeeAmount.HIGH]: 600,
+  [FeeAmount.HIGH]: 400,
 };
 
 // constants used internally but not expected to be used externally

@@ -484,7 +484,7 @@ var FeeAmount;
 /**
  * The default factory tick spacings by fee amount.
  */
-var TICK_SPACINGS = (_TICK_SPACINGS = {}, _TICK_SPACINGS[FeeAmount.LOWEST] = 1, _TICK_SPACINGS[FeeAmount.LOW] = 10, _TICK_SPACINGS[FeeAmount.MEDIUM] = 60, _TICK_SPACINGS[FeeAmount.HIGH] = 600, _TICK_SPACINGS);
+var TICK_SPACINGS = (_TICK_SPACINGS = {}, _TICK_SPACINGS[FeeAmount.LOWEST] = 1, _TICK_SPACINGS[FeeAmount.LOW] = 10, _TICK_SPACINGS[FeeAmount.MEDIUM] = 60, _TICK_SPACINGS[FeeAmount.HIGH] = 400, _TICK_SPACINGS);
 // constants used internally but not expected to be used externally
 var NEGATIVE_ONE = /*#__PURE__*/JSBI.BigInt(-1);
 var ZERO = /*#__PURE__*/JSBI.BigInt(0);
