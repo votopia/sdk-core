@@ -24,8 +24,7 @@ export enum FeeAmount {
   LOWEST = 100,
   LOW = 500,
   MEDIUM = 3000,
-  HIGH = 10000,
-  HIGHEST = 30000
+  HIGH = 30000,
 }
 
 /**
@@ -35,8 +34,7 @@ export const TICK_SPACINGS: { [amount in FeeAmount]: number } = {
   [FeeAmount.LOWEST]: 1,
   [FeeAmount.LOW]: 10,
   [FeeAmount.MEDIUM]: 60,
-  [FeeAmount.HIGH]: 200,
-  [FeeAmount.HIGHEST]: 600,
+  [FeeAmount.HIGH]: 600,
 };
 
 // constants used internally but not expected to be used externally

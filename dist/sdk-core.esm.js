@@ -479,13 +479,12 @@ var FeeAmount;
   FeeAmount[FeeAmount["LOWEST"] = 100] = "LOWEST";
   FeeAmount[FeeAmount["LOW"] = 500] = "LOW";
   FeeAmount[FeeAmount["MEDIUM"] = 3000] = "MEDIUM";
-  FeeAmount[FeeAmount["HIGH"] = 10000] = "HIGH";
-  FeeAmount[FeeAmount["HIGHEST"] = 30000] = "HIGHEST";
+  FeeAmount[FeeAmount["HIGH"] = 30000] = "HIGH";
 })(FeeAmount || (FeeAmount = {}));
 /**
  * The default factory tick spacings by fee amount.
  */
-var TICK_SPACINGS = (_TICK_SPACINGS = {}, _TICK_SPACINGS[FeeAmount.LOWEST] = 1, _TICK_SPACINGS[FeeAmount.LOW] = 10, _TICK_SPACINGS[FeeAmount.MEDIUM] = 60, _TICK_SPACINGS[FeeAmount.HIGH] = 200, _TICK_SPACINGS[FeeAmount.HIGHEST] = 600, _TICK_SPACINGS);
+var TICK_SPACINGS = (_TICK_SPACINGS = {}, _TICK_SPACINGS[FeeAmount.LOWEST] = 1, _TICK_SPACINGS[FeeAmount.LOW] = 10, _TICK_SPACINGS[FeeAmount.MEDIUM] = 60, _TICK_SPACINGS[FeeAmount.HIGH] = 600, _TICK_SPACINGS);
 // constants used internally but not expected to be used externally
 var NEGATIVE_ONE = /*#__PURE__*/JSBI.BigInt(-1);
 var ZERO = /*#__PURE__*/JSBI.BigInt(0);
