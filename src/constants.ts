@@ -24,7 +24,7 @@ export enum FeeAmount {
   LOWEST = 100,
   LOW = 500,
   MEDIUM = 3000,
-  HIGH = 30000,
+  HIGH = 10000,
 }
 
 /**
@@ -34,7 +34,7 @@ export const TICK_SPACINGS: { [amount in FeeAmount]: number } = {
   [FeeAmount.LOWEST]: 1,
   [FeeAmount.LOW]: 10,
   [FeeAmount.MEDIUM]: 60,
-  [FeeAmount.HIGH]: 400,
+  [FeeAmount.HIGH]: 200,
 };
 
 // constants used internally but not expected to be used externally
@@ -47,7 +47,7 @@ export const Q96 = JSBI.exponentiate(JSBI.BigInt(2), JSBI.BigInt(96));
 export const Q192 = JSBI.exponentiate(Q96, JSBI.BigInt(2));
 
 export const POOL_INIT_CODE_HASH =
-  "0xe34f199b19b2b4f47f68442619d555527d244f78a3297ea89325f843f87b8b54";
+  "0x851d77a45b8b9a205fb9f44cb829cceba85282714d2603d601840640628a3da7";
 
 export const MSG_SENDER = "0x0000000000000000000000000000000000000001";
 export const ADDRESS_THIS = "0x0000000000000000000000000000000000000002";

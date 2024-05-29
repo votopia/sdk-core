@@ -1,6 +1,6 @@
 {
   "name": "@votopia/sdk-core",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "description": "An SDK for building applications on top of Votopia",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
