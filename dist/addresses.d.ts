@@ -6,7 +6,7 @@ export declare const NONFUNGIBLE_POSITION_MANAGER_ADDRESS = "0xbBF8F12D478c08Da5
 export declare const TICK_LENS_ADDRESS = "0xDaa9c0b411BA45BE2D19794dE40604fCeD71eedD";
 export declare const QUOTER_V2_ADDRESS = "0x86038EAbf8448c4a11e7987c84FdDd1b9E7AC491";
 export declare const MULTICALL_ADDRESS = "0xCEE7B0EF15A6A0Cf51ebf6944E523047fEfD3126";
-export declare const SWAP_ROUTER_02_ADDRESS = "0x26b82128bf4952dc33b285f371Ca942A69EbB688";
+export declare const SWAP_ROUTER_02_ADDRESS = "0xbD18b076DE6810dfc5Eb8B59fCa86d2308eDf023";
 export declare const ADDRESS_MAP: {
     v3CoreFactoryAddress: string;
     multicallAddress: string;

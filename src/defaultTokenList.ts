@@ -4,18 +4,27 @@ const tokens = [
     name: "Wrapped Ethereum",
     icon: "/icons/weth.svg",
     decimals: 18,
-    address: "0x98E1817244d130D8fE05591ba517d3f24Db035Ec",
+    address: "0x4200000000000000000000000000000000000006",
     coingeckoId: "ethereum",
   },
   {
     symbol: "USDC",
     name: "USD Coin",
     icon: "/icons/usdc.png",
-    decimals: 18,
-    address: "0xD1fE20F19f18F4f26CbCf97a2367a47c3866d98e",
+    decimals: 6,
+    address: "0xb62F35B9546A908d11c5803ecBBA735AbC3E3eaE",
     coingeckoId: "usdc",
   },
+  {
+    symbol: "USDT",
+    name: "Tether USD",
+    icon: "/icons/usdt.png",
+    decimals: 6,
+    address: "0x05D032ac25d322df992303dCa074EE7392C117b9",
+    coingeckoId: "tether",
+  },
 ];
+
 export const DEFAULT_TOKEN_LIST = {
   name: "Votopia Default",
   timestamp: new Date().toISOString(),
