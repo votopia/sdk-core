@@ -32,6 +32,85 @@ var ADDRESS_MAP = {
   swapRouter02Address: SWAP_ROUTER_02_ADDRESS
 };
 
+function _arrayLikeToArray(r, a) {
+  (null == a || a > r.length) && (a = r.length);
+  for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e];
+  return n;
+}
+function asyncGeneratorStep(n, t, e, r, o, a, c) {
+  try {
+    var i = n[a](c),
+      u = i.value;
+  } catch (n) {
+    return void e(n);
+  }
+  i.done ? t(u) : Promise.resolve(u).then(r, o);
+}
+function _asyncToGenerator(n) {
+  return function () {
+    var t = this,
+      e = arguments;
+    return new Promise(function (r, o) {
+      var a = n.apply(t, e);
+      function _next(n) {
+        asyncGeneratorStep(a, r, o, _next, _throw, "next", n);
+      }
+      function _throw(n) {
+        asyncGeneratorStep(a, r, o, _next, _throw, "throw", n);
+      }
+      _next(void 0);
+    });
+  };
+}
+function _defineProperties(e, r) {
+  for (var t = 0; t < r.length; t++) {
+    var o = r[t];
+    o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o);
+  }
+}
+function _createClass(e, r, t) {
+  return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", {
+    writable: !1
+  }), e;
+}
+function _createForOfIteratorHelperLoose(r, e) {
+  var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"];
+  if (t) return (t = t.call(r)).next.bind(t);
+  if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) {
+    t && (r = t);
+    var o = 0;
+    return function () {
+      return o >= r.length ? {
+        done: !0
+      } : {
+        done: !1,
+        value: r[o++]
+      };
+    };
+  }
+  throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+function _inheritsLoose(t, o) {
+  t.prototype = Object.create(o.prototype), t.prototype.constructor = t, _setPrototypeOf(t, o);
+}
+function _objectWithoutPropertiesLoose(r, e) {
+  if (null == r) return {};
+  var t = {};
+  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
+    if (e.includes(n)) continue;
+    t[n] = r[n];
+  }
+  return t;
+}
 function _regeneratorRuntime() {
   _regeneratorRuntime = function () {
     return e;
@@ -140,7 +219,7 @@ function _regeneratorRuntime() {
   function makeInvokeMethod(e, r, n) {
     var o = h;
     return function (i, a) {
-      if (o === f) throw new Error("Generator is already running");
+      if (o === f) throw Error("Generator is already running");
       if (o === s) {
         if ("throw" === i) throw a;
         return {
@@ -282,7 +361,7 @@ function _regeneratorRuntime() {
           } else if (c) {
             if (this.prev < i.catchLoc) return handle(i.catchLoc, !0);
           } else {
-            if (!u) throw new Error("try statement without catch or finally");
+            if (!u) throw Error("try statement without catch or finally");
             if (this.prev < i.finallyLoc) return handle(i.finallyLoc);
           }
         }
@@ -322,7 +401,7 @@ function _regeneratorRuntime() {
           return o;
         }
       }
-      throw new Error("illegal catch attempt");
+      throw Error("illegal catch attempt");
     },
     delegateYield: function (e, r, n) {
       return this.delegate = {
@@ -333,135 +412,31 @@ function _regeneratorRuntime() {
     }
   }, e;
 }
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
-  try {
-    var info = gen[key](arg);
-    var value = info.value;
-  } catch (error) {
-    reject(error);
-    return;
-  }
-  if (info.done) {
-    resolve(value);
-  } else {
-    Promise.resolve(value).then(_next, _throw);
-  }
+function _setPrototypeOf(t, e) {
+  return _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (t, e) {
+    return t.__proto__ = e, t;
+  }, _setPrototypeOf(t, e);
 }
-function _asyncToGenerator(fn) {
-  return function () {
-    var self = this,
-      args = arguments;
-    return new Promise(function (resolve, reject) {
-      var gen = fn.apply(self, args);
-      function _next(value) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
-      }
-      function _throw(err) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
-      }
-      _next(undefined);
-    });
-  };
-}
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor);
-  }
-}
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  Object.defineProperty(Constructor, "prototype", {
-    writable: false
-  });
-  return Constructor;
-}
-function _extends() {
-  _extends = Object.assign ? Object.assign.bind() : function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-    return target;
-  };
-  return _extends.apply(this, arguments);
-}
-function _inheritsLoose(subClass, superClass) {
-  subClass.prototype = Object.create(superClass.prototype);
-  subClass.prototype.constructor = subClass;
-  _setPrototypeOf(subClass, superClass);
-}
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-  return _setPrototypeOf(o, p);
-}
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
-  return target;
-}
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-}
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
-  return arr2;
-}
-function _createForOfIteratorHelperLoose(o, allowArrayLike) {
-  var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
-  if (it) return (it = it.call(o)).next.bind(it);
-  if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
-    if (it) o = it;
-    var i = 0;
-    return function () {
-      if (i >= o.length) return {
-        done: true
-      };
-      return {
-        done: false,
-        value: o[i++]
-      };
-    };
-  }
-  throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-function _toPrimitive(input, hint) {
-  if (typeof input !== "object" || input === null) return input;
-  var prim = input[Symbol.toPrimitive];
-  if (prim !== undefined) {
-    var res = prim.call(input, hint || "default");
-    if (typeof res !== "object") return res;
+function _toPrimitive(t, r) {
+  if ("object" != typeof t || !t) return t;
+  var e = t[Symbol.toPrimitive];
+  if (void 0 !== e) {
+    var i = e.call(t, r || "default");
+    if ("object" != typeof i) return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
-  return (hint === "string" ? String : Number)(input);
+  return ("string" === r ? String : Number)(t);
 }
-function _toPropertyKey(arg) {
-  var key = _toPrimitive(arg, "string");
-  return typeof key === "symbol" ? key : String(key);
+function _toPropertyKey(t) {
+  var i = _toPrimitive(t, "string");
+  return "symbol" == typeof i ? i : i + "";
+}
+function _unsupportedIterableToArray(r, a) {
+  if (r) {
+    if ("string" == typeof r) return _arrayLikeToArray(r, a);
+    var t = {}.toString.call(r).slice(8, -1);
+    return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0;
+  }
 }
 
 var _TICK_SPACINGS;
@@ -490,7 +465,7 @@ var NEGATIVE_ONE = /*#__PURE__*/JSBI.BigInt(-1);
 var ZERO = /*#__PURE__*/JSBI.BigInt(0);
 var ONE = /*#__PURE__*/JSBI.BigInt(1);
 // used in liquidity amount math
-var Q96 = /*#__PURE__*/JSBI.exponentiate( /*#__PURE__*/JSBI.BigInt(2), /*#__PURE__*/JSBI.BigInt(96));
+var Q96 = /*#__PURE__*/JSBI.exponentiate(/*#__PURE__*/JSBI.BigInt(2), /*#__PURE__*/JSBI.BigInt(96));
 var Q192 = /*#__PURE__*/JSBI.exponentiate(Q96, /*#__PURE__*/JSBI.BigInt(2));
 var POOL_INIT_CODE_HASH = "0x851d77a45b8b9a205fb9f44cb829cceba85282714d2603d601840640628a3da7";
 var MSG_SENDER = "0x0000000000000000000000000000000000000001";
@@ -594,7 +569,7 @@ var Fraction = /*#__PURE__*/function () {
   /**
    * Helper method for converting any super class back to a fraction
    */;
-  _createClass(Fraction, [{
+  return _createClass(Fraction, [{
     key: "quotient",
     get: function get() {
       return JSBI.divide(this.numerator, this.denominator);
@@ -611,12 +586,10 @@ var Fraction = /*#__PURE__*/function () {
       return new Fraction(this.numerator, this.denominator);
     }
   }]);
-  return Fraction;
 }();
 
 var Big$1 = /*#__PURE__*/toFormat(_Big);
 var CurrencyAmount = /*#__PURE__*/function (_Fraction) {
-  _inheritsLoose(CurrencyAmount, _Fraction);
   function CurrencyAmount(currency, numerator, denominator) {
     var _this;
     _this = _Fraction.call(this, numerator, denominator) || this;
@@ -630,6 +603,7 @@ var CurrencyAmount = /*#__PURE__*/function (_Fraction) {
    * @param currency the currency in the amount
    * @param rawAmount the raw token or ether amount
    */
+  _inheritsLoose(CurrencyAmount, _Fraction);
   CurrencyAmount.fromRawAmount = function fromRawAmount(currency, rawAmount) {
     return new CurrencyAmount(currency, rawAmount);
   }
@@ -689,18 +663,16 @@ var CurrencyAmount = /*#__PURE__*/function (_Fraction) {
     Big$1.DP = this.currency.decimals;
     return new Big$1(this.quotient.toString()).div(this.decimalScale.toString()).toFormat(format);
   };
-  _createClass(CurrencyAmount, [{
+  return _createClass(CurrencyAmount, [{
     key: "wrapped",
     get: function get() {
       if (this.currency.isToken) return this;
       return CurrencyAmount.fromFractionalAmount(this.currency.wrapped, this.numerator, this.denominator);
     }
   }]);
-  return CurrencyAmount;
 }(Fraction);
 
 var Price = /*#__PURE__*/function (_Fraction) {
-  _inheritsLoose(Price, _Fraction);
   /**
    * Construct a price, either with the base and quote currency amount, or the
    * @param args
@@ -733,6 +705,7 @@ var Price = /*#__PURE__*/function (_Fraction) {
   /**
    * Flip the price, switching the base and quote currency
    */
+  _inheritsLoose(Price, _Fraction);
   var _proto = Price.prototype;
   _proto.invert = function invert() {
     return new Price(this.quoteCurrency, this.baseCurrency, this.numerator, this.denominator);
@@ -771,16 +744,15 @@ var Price = /*#__PURE__*/function (_Fraction) {
     }
     return this.adjustedForDecimals.toFixed(decimalPlaces, format, rounding);
   };
-  _createClass(Price, [{
+  return _createClass(Price, [{
     key: "adjustedForDecimals",
     get: function get() {
       return _Fraction.prototype.multiply.call(this, this.scalar);
     }
   }]);
-  return Price;
 }(Fraction);
 
-var ONE_HUNDRED = /*#__PURE__*/new Fraction( /*#__PURE__*/JSBI.BigInt(100));
+var ONE_HUNDRED = /*#__PURE__*/new Fraction(/*#__PURE__*/JSBI.BigInt(100));
 /**
  * Converts a fraction to a percent
  * @param fraction the fraction to convert
@@ -789,7 +761,6 @@ function toPercent(fraction) {
   return new Percent(fraction.numerator, fraction.denominator);
 }
 var Percent = /*#__PURE__*/function (_Fraction) {
-  _inheritsLoose(Percent, _Fraction);
   function Percent() {
     var _this;
     _this = _Fraction.apply(this, arguments) || this;
@@ -799,6 +770,7 @@ var Percent = /*#__PURE__*/function (_Fraction) {
     _this.isPercent = true;
     return _this;
   }
+  _inheritsLoose(Percent, _Fraction);
   var _proto = Percent.prototype;
   _proto.add = function add(other) {
     return toPercent(_Fraction.prototype.add.call(this, other));
@@ -837,7 +809,6 @@ var BaseCurrency = function BaseCurrency(decimals, symbol, name, icon, coingecko
 };
 
 var NativeCurrency = /*#__PURE__*/function (_BaseCurrency) {
-  _inheritsLoose(NativeCurrency, _BaseCurrency);
   function NativeCurrency() {
     var _this;
     _this = _BaseCurrency.apply(this, arguments) || this;
@@ -845,11 +816,11 @@ var NativeCurrency = /*#__PURE__*/function (_BaseCurrency) {
     _this.isToken = false;
     return _this;
   }
+  _inheritsLoose(NativeCurrency, _BaseCurrency);
   return NativeCurrency;
 }(BaseCurrency);
 
 var Token = /*#__PURE__*/function (_BaseCurrency) {
-  _inheritsLoose(Token, _BaseCurrency);
   function Token(address, decimals, symbol, name, icon, coingeckoId, buyFeeBps, sellFeeBps) {
     var _this;
     _this = _BaseCurrency.call(this, decimals, symbol, name, icon, coingeckoId) || this;
@@ -866,6 +837,7 @@ var Token = /*#__PURE__*/function (_BaseCurrency) {
     _this.sellFeeBps = sellFeeBps;
     return _this;
   }
+  _inheritsLoose(Token, _BaseCurrency);
   var _proto = Token.prototype;
   _proto.equals = function equals(other) {
     return other.isToken && this.address.toLowerCase() === other.address.toLowerCase();
@@ -874,13 +846,12 @@ var Token = /*#__PURE__*/function (_BaseCurrency) {
     !(this.address.toLowerCase() !== other.address.toLowerCase()) ?  invariant(false, "ADDRESSES")  : void 0;
     return this.address.toLowerCase() < other.address.toLowerCase();
   };
-  _createClass(Token, [{
+  return _createClass(Token, [{
     key: "wrapped",
     get: function get() {
       return this;
     }
   }]);
-  return Token;
 }(BaseCurrency);
 
 /**
@@ -891,7 +862,7 @@ var NoTickDataProvider = /*#__PURE__*/function () {
   function NoTickDataProvider() {}
   var _proto = NoTickDataProvider.prototype;
   _proto.getTick = /*#__PURE__*/function () {
-    var _getTick = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(_tick) {
+    var _getTick = /*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(_tick) {
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
@@ -908,7 +879,7 @@ var NoTickDataProvider = /*#__PURE__*/function () {
     return getTick;
   }();
   _proto.nextInitializedTickWithinOneWord = /*#__PURE__*/function () {
-    var _nextInitializedTickWithinOneWord = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(_tick, _lte, _tickSpacing) {
+    var _nextInitializedTickWithinOneWord = /*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee2(_tick, _lte, _tickSpacing) {
       return _regeneratorRuntime().wrap(function _callee2$(_context2) {
         while (1) switch (_context2.prev = _context2.next) {
           case 0:
@@ -951,7 +922,7 @@ var TickListDataProvider = /*#__PURE__*/function () {
   }
   var _proto = TickListDataProvider.prototype;
   _proto.getTick = /*#__PURE__*/function () {
-    var _getTick = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(tick) {
+    var _getTick = /*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(tick) {
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
@@ -968,7 +939,7 @@ var TickListDataProvider = /*#__PURE__*/function () {
     return getTick;
   }();
   _proto.nextInitializedTickWithinOneWord = /*#__PURE__*/function () {
-    var _nextInitializedTickWithinOneWord = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(tick, lte, tickSpacing) {
+    var _nextInitializedTickWithinOneWord = /*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee2(tick, lte, tickSpacing) {
       return _regeneratorRuntime().wrap(function _callee2$(_context2) {
         while (1) switch (_context2.prev = _context2.next) {
           case 0:
@@ -1062,7 +1033,7 @@ var Pool = /*#__PURE__*/function () {
   _proto.getOutputAmount =
   /*#__PURE__*/
   function () {
-    var _getOutputAmount = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(inputAmount, sqrtPriceLimitX96) {
+    var _getOutputAmount = /*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(inputAmount, sqrtPriceLimitX96) {
       var zeroForOne, _yield$this$swap, outputAmount, sqrtRatioX96, liquidity, tickCurrent, outputToken;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
@@ -1100,7 +1071,7 @@ var Pool = /*#__PURE__*/function () {
   _proto.getInputAmount =
   /*#__PURE__*/
   function () {
-    var _getInputAmount = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(outputAmount, sqrtPriceLimitX96) {
+    var _getInputAmount = /*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee2(outputAmount, sqrtPriceLimitX96) {
       var zeroForOne, _yield$this$swap2, inputAmount, sqrtRatioX96, liquidity, tickCurrent, inputToken;
       return _regeneratorRuntime().wrap(function _callee2$(_context2) {
         while (1) switch (_context2.prev = _context2.next) {
@@ -1142,7 +1113,7 @@ var Pool = /*#__PURE__*/function () {
   _proto.swap =
   /*#__PURE__*/
   function () {
-    var _swap = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(zeroForOne, amountSpecified, sqrtPriceLimitX96) {
+    var _swap = /*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee3(zeroForOne, amountSpecified, sqrtPriceLimitX96) {
       var exactInput, state, step, _yield$this$tickDataP, _SwapMath$computeSwap, liquidityNet;
       return _regeneratorRuntime().wrap(function _callee3$(_context3) {
         while (1) switch (_context3.prev = _context3.next) {
@@ -1247,7 +1218,7 @@ var Pool = /*#__PURE__*/function () {
     }
     return swap;
   }();
-  _createClass(Pool, [{
+  return _createClass(Pool, [{
     key: "token0Price",
     get: function get() {
       var _this$_token0Price;
@@ -1268,7 +1239,6 @@ var Pool = /*#__PURE__*/function () {
       return TICK_SPACINGS[this.fee];
     }
   }]);
-  return Pool;
 }();
 
 var FullMath = /*#__PURE__*/function () {
@@ -1285,7 +1255,7 @@ var FullMath = /*#__PURE__*/function () {
   return FullMath;
 }();
 
-var MaxUint160 = /*#__PURE__*/JSBI.subtract( /*#__PURE__*/JSBI.exponentiate( /*#__PURE__*/JSBI.BigInt(2), /*#__PURE__*/JSBI.BigInt(160)), ONE);
+var MaxUint160 = /*#__PURE__*/JSBI.subtract(/*#__PURE__*/JSBI.exponentiate(/*#__PURE__*/JSBI.BigInt(2), /*#__PURE__*/JSBI.BigInt(160)), ONE);
 function multiplyIn256(x, y) {
   var product = JSBI.multiply(x, y);
   return JSBI.bitwiseAnd(product, MaxUint256);
@@ -1383,7 +1353,7 @@ function mostSignificantBit(x) {
 function mulShift(val, mulBy) {
   return JSBI.signedRightShift(JSBI.multiply(val, JSBI.BigInt(mulBy)), JSBI.BigInt(128));
 }
-var Q32 = /*#__PURE__*/JSBI.exponentiate( /*#__PURE__*/JSBI.BigInt(2), /*#__PURE__*/JSBI.BigInt(32));
+var Q32 = /*#__PURE__*/JSBI.exponentiate(/*#__PURE__*/JSBI.BigInt(2), /*#__PURE__*/JSBI.BigInt(32));
 var TickMath = /*#__PURE__*/function () {
   /**
    * Cannot be constructed.
@@ -1675,7 +1645,7 @@ var Position = /*#__PURE__*/function () {
       useFullPrecision: true
     });
   };
-  _createClass(Position, [{
+  return _createClass(Position, [{
     key: "token0PriceLower",
     get: function get() {
       return tickToPrice(this.pool.token0, this.pool.token1, this.tickLower);
@@ -1746,7 +1716,6 @@ var Position = /*#__PURE__*/function () {
       return this._mintAmounts;
     }
   }]);
-  return Position;
 }();
 
 /**
@@ -1788,7 +1757,7 @@ var RouteSDK = /*#__PURE__*/function () {
   /**
    * Returns the mid price of the route
    */
-  _createClass(RouteSDK, [{
+  return _createClass(RouteSDK, [{
     key: "midPrice",
     get: function get() {
       if (this._midPrice !== null) return this._midPrice;
@@ -1812,17 +1781,16 @@ var RouteSDK = /*#__PURE__*/function () {
       return this._midPrice = new Price(this.input, this.output, price.denominator, price.numerator);
     }
   }]);
-  return RouteSDK;
 }();
 // V3 route wrapper
 var Route = /*#__PURE__*/function (_RouteSDK) {
-  _inheritsLoose(Route, _RouteSDK);
   function Route(v3Route) {
     var _this;
     _this = _RouteSDK.call(this, v3Route.pools, v3Route.input, v3Route.output) || this;
     _this.path = v3Route.tokenPath;
     return _this;
   }
+  _inheritsLoose(Route, _RouteSDK);
   return Route;
 }(RouteSDK);
 
@@ -1934,7 +1902,7 @@ var TradeSDK = /*#__PURE__*/function () {
   TradeSDK.exactIn =
   /*#__PURE__*/
   function () {
-    var _exactIn = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(route, amountIn) {
+    var _exactIn = /*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(route, amountIn) {
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
@@ -1962,7 +1930,7 @@ var TradeSDK = /*#__PURE__*/function () {
   TradeSDK.exactOut =
   /*#__PURE__*/
   function () {
-    var _exactOut = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(route, amountOut) {
+    var _exactOut = /*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee2(route, amountOut) {
       return _regeneratorRuntime().wrap(function _callee2$(_context2) {
         while (1) switch (_context2.prev = _context2.next) {
           case 0:
@@ -1992,7 +1960,7 @@ var TradeSDK = /*#__PURE__*/function () {
   TradeSDK.fromRoute =
   /*#__PURE__*/
   function () {
-    var _fromRoute = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(route, amount, tradeType) {
+    var _fromRoute = /*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee3(route, amount, tradeType) {
       var amounts, inputAmount, outputAmount, i, pool, _yield$pool$getOutput, _outputAmount, _i, _pool, _yield$_pool$getInput, _inputAmount;
       return _regeneratorRuntime().wrap(function _callee3$(_context3) {
         while (1) switch (_context3.prev = _context3.next) {
@@ -2083,7 +2051,7 @@ var TradeSDK = /*#__PURE__*/function () {
   TradeSDK.fromRoutes =
   /*#__PURE__*/
   function () {
-    var _fromRoutes = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(routes, tradeType) {
+    var _fromRoutes = /*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee4(routes, tradeType) {
       var populatedRoutes, _iterator3, _step3, _step3$value, route, amount, amounts, inputAmount, outputAmount, i, pool, _yield$pool$getOutput2, _outputAmount2, _i2, _pool2, _yield$_pool2$getInpu, _inputAmount2;
       return _regeneratorRuntime().wrap(function _callee4$(_context4) {
         while (1) switch (_context4.prev = _context4.next) {
@@ -2267,7 +2235,7 @@ var TradeSDK = /*#__PURE__*/function () {
   TradeSDK.bestTradeExactIn =
   /*#__PURE__*/
   function () {
-    var _bestTradeExactIn = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5(pools, currencyAmountIn, currencyOut, _temp,
+    var _bestTradeExactIn = /*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee5(pools, currencyAmountIn, currencyOut, _temp,
     // used in recursion.
     currentPools, nextAmountIn, bestTrades) {
       var _ref5, _ref5$maxNumResults, maxNumResults, _ref5$maxHops, maxHops, amountIn, tokenOut, i, pool, amountOut, _yield$pool$getOutput3, poolsExcludingThisPool;
@@ -2385,7 +2353,7 @@ var TradeSDK = /*#__PURE__*/function () {
   TradeSDK.bestTradeExactOut =
   /*#__PURE__*/
   function () {
-    var _bestTradeExactOut = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6(pools, currencyIn, currencyAmountOut, _temp2,
+    var _bestTradeExactOut = /*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee6(pools, currencyIn, currencyAmountOut, _temp2,
     // used in recursion.
     currentPools, nextAmountOut, bestTrades) {
       var _ref6, _ref6$maxNumResults, maxNumResults, _ref6$maxHops, maxHops, amountOut, tokenIn, i, pool, amountIn, _yield$pool$getInputA, poolsExcludingThisPool;
@@ -2483,7 +2451,7 @@ var TradeSDK = /*#__PURE__*/function () {
     }
     return bestTradeExactOut;
   }();
-  _createClass(TradeSDK, [{
+  return _createClass(TradeSDK, [{
     key: "route",
     get: function get() {
       !(this.swaps.length == 1) ?  invariant(false, "MULTIPLE_ROUTES")  : void 0;
@@ -2558,7 +2526,6 @@ var TradeSDK = /*#__PURE__*/function () {
       return this._priceImpact;
     }
   }]);
-  return TradeSDK;
 }();
 var Trade = /*#__PURE__*/function () {
   //  construct a trade across v2 and v3 routes from pre-computed amounts
@@ -2661,7 +2628,7 @@ var Trade = /*#__PURE__*/function () {
     return new Price(this.inputAmount.currency, this.outputAmount.currency, this.maximumAmountIn(slippageTolerance).quotient, this.minimumAmountOut(slippageTolerance).quotient);
   };
   Trade.fromRoutes = /*#__PURE__*/function () {
-    var _fromRoutes2 = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7(v3Routes, tradeType) {
+    var _fromRoutes2 = /*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee7(v3Routes, tradeType) {
       var populatedV3Routes, _iterator8, _step8, _step8$value, routev3, amount, v3Trade, inputAmount, outputAmount;
       return _regeneratorRuntime().wrap(function _callee7$(_context7) {
         while (1) switch (_context7.prev = _context7.next) {
@@ -2704,7 +2671,7 @@ var Trade = /*#__PURE__*/function () {
     return fromRoutes;
   }();
   Trade.fromRoute = /*#__PURE__*/function () {
-    var _fromRoute2 = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee8(route, amount, tradeType) {
+    var _fromRoute2 = /*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee8(route, amount, tradeType) {
       var v3Routes, v3Trade, inputAmount, outputAmount;
       return _regeneratorRuntime().wrap(function _callee8$(_context8) {
         while (1) switch (_context8.prev = _context8.next) {
@@ -2744,7 +2711,7 @@ var Trade = /*#__PURE__*/function () {
     }
     return fromRoute;
   }();
-  _createClass(Trade, [{
+  return _createClass(Trade, [{
     key: "inputAmount",
     get: function get() {
       if (this._inputAmount) {
@@ -2837,7 +2804,6 @@ var Trade = /*#__PURE__*/function () {
       return this._priceImpact;
     }
   }]);
-  return Trade;
 }();
 
 (function (Protocol) {
@@ -2975,7 +2941,7 @@ var LiquidityMath = /*#__PURE__*/function () {
   return LiquidityMath;
 }();
 
-var MAX_FEE = /*#__PURE__*/JSBI.exponentiate( /*#__PURE__*/JSBI.BigInt(10), /*#__PURE__*/JSBI.BigInt(6));
+var MAX_FEE = /*#__PURE__*/JSBI.exponentiate(/*#__PURE__*/JSBI.BigInt(10), /*#__PURE__*/JSBI.BigInt(6));
 var SwapMath = /*#__PURE__*/function () {
   /**
    * Cannot be constructed.
@@ -3318,7 +3284,7 @@ function nearestUsableTick(tick, tickSpacing) {
   if (rounded < TickMath.MIN_TICK) return rounded + tickSpacing;else if (rounded > TickMath.MAX_TICK) return rounded - tickSpacing;else return rounded;
 }
 
-var Q256 = /*#__PURE__*/JSBI.exponentiate( /*#__PURE__*/JSBI.BigInt(2), /*#__PURE__*/JSBI.BigInt(256));
+var Q256 = /*#__PURE__*/JSBI.exponentiate(/*#__PURE__*/JSBI.BigInt(2), /*#__PURE__*/JSBI.BigInt(256));
 function subIn256(x, y) {
   var difference = JSBI.subtract(x, y);
   if (JSBI.lessThan(difference, ZERO)) {
@@ -3356,7 +3322,7 @@ var TickLibrary = /*#__PURE__*/function () {
   return TickLibrary;
 }();
 
-var Q128 = /*#__PURE__*/JSBI.exponentiate( /*#__PURE__*/JSBI.BigInt(2), /*#__PURE__*/JSBI.BigInt(128));
+var Q128 = /*#__PURE__*/JSBI.exponentiate(/*#__PURE__*/JSBI.BigInt(2), /*#__PURE__*/JSBI.BigInt(128));
 var PositionLibrary = /*#__PURE__*/function () {
   /**
    * Cannot be constructed.
@@ -5008,7 +4974,7 @@ var INonfungiblePositionManager = {
 };
 
 var _excluded = ["expectedCurrencyOwed0", "expectedCurrencyOwed1"];
-var MaxUint128 = /*#__PURE__*/toHex( /*#__PURE__*/JSBI.subtract( /*#__PURE__*/JSBI.exponentiate( /*#__PURE__*/JSBI.BigInt(2), /*#__PURE__*/JSBI.BigInt(128)), /*#__PURE__*/JSBI.BigInt(1)));
+var MaxUint128 = /*#__PURE__*/toHex(/*#__PURE__*/JSBI.subtract(/*#__PURE__*/JSBI.exponentiate(/*#__PURE__*/JSBI.BigInt(2), /*#__PURE__*/JSBI.BigInt(128)), /*#__PURE__*/JSBI.BigInt(1)));
 // type guard
 function isMint(options) {
   return Object.keys(options).some(function (k) {
@@ -5583,15 +5549,15 @@ PaymentsExtended.INTERFACE = /*#__PURE__*/new abi$8.Interface(abi$5);
 var USDC = /*#__PURE__*/new Token(USDC_TOKEN_ADDRESS, 6, "USDC", "USD Coin", "/icons/usdc.png", "usd-coin");
 var WRAPPED_NATIVE_TOKEN = /*#__PURE__*/new Token(WRAPPED_NATIVE_TOKEN_ADDRESS, 18, "WETH", "Wrapped ETH", "/icons/weth.svg", "weth");
 var _NativeCurrenty = /*#__PURE__*/function (_NativeCurrency) {
-  _inheritsLoose(_NativeCurrenty, _NativeCurrency);
   function _NativeCurrenty() {
     return _NativeCurrency.call(this, 18, "ETH", "Ethereum", "/icons/eth.svg", "ethereum") || this;
   }
+  _inheritsLoose(_NativeCurrenty, _NativeCurrency);
   var _proto = _NativeCurrenty.prototype;
   _proto.equals = function equals(other) {
     return other.isNative;
   };
-  _createClass(_NativeCurrenty, [{
+  return _createClass(_NativeCurrenty, [{
     key: "wrapped",
     get: function get() {
       return WRAPPED_NATIVE_TOKEN;
@@ -5602,7 +5568,6 @@ var _NativeCurrenty = /*#__PURE__*/function (_NativeCurrency) {
       return "ETH";
     }
   }]);
-  return _NativeCurrenty;
 }(NativeCurrency);
 var NATIVE_CURRENCY = /*#__PURE__*/new _NativeCurrenty();
 
@@ -6632,7 +6597,7 @@ var ApproveAndCall = /*#__PURE__*/function () {
 ApproveAndCall.INTERFACE = /*#__PURE__*/new abi$8.Interface(abi$7);
 
 var ZERO$2 = /*#__PURE__*/JSBI.BigInt(0);
-var REFUND_ETH_PRICE_IMPACT_THRESHOLD = /*#__PURE__*/new Percent( /*#__PURE__*/JSBI.BigInt(50), /*#__PURE__*/JSBI.BigInt(100));
+var REFUND_ETH_PRICE_IMPACT_THRESHOLD = /*#__PURE__*/new Percent(/*#__PURE__*/JSBI.BigInt(50), /*#__PURE__*/JSBI.BigInt(100));
 /**
  * Represents the Uniswap V2 + V3 SwapRouter02, and has static methods for helping execute trades.
  */
