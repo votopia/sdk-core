@@ -58,6 +58,6 @@ export const OVM_GASPRICE_ADDRESS =
 export const NETWORK_NAME = "Votopia";
 
 export const SUBGRAPH_URL =
-  "https://graph.brcchain.io/subgraphs/name/votopia-subgraph";
+  "https://graphnode.optopia.ai/subgraphs/name/votopia-subgraph";
 
 export const JSON_RPC_PROVIER = "https://rpc-mainnet.optopia.ai";
